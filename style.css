@@ -1,0 +1,49 @@
+.header-title {
+    background-color: lightblue;
+    padding: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size:35px;
+    font-weight: 900;
+}
+
+.game-description {
+    text-align: center;
+}
+
+.choices {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display:flex;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.rps-choice {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.rps-choice:hover {
+    background-color: darkgray;
+}
+
+.rps-choice:active {
+    background-color: darkgray;
+    box-shadow: 5px 2px 5px grey;
+    transform: translateY(4px);
+}
+
+h3 {
+    text-align: center;
+}
+
+.results {
+    margin-left: 20px;
+}

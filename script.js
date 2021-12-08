@@ -14,6 +14,9 @@ function computerPlay(guess) {
     }
 }
 
+let userScore = 0;
+let computerScore = 0;
+
 // this function gives me the outcome of the game based on my selection and the computer selection
 function playRound(playerSelection, computerSelection) {
 
@@ -24,16 +27,22 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection == "scissors" && computerSelection == "scissors") {
         return "You tied! Scissors and scissors cancel each other out.";
     } else if (playerSelection == "rock" && computerSelection == "paper") {
+        computerScore++;
         return "You lose! Paper beats rock.";
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        userScore++;
         return "You win! Rock beats scissors.";
     } else if (playerSelection == "paper" && computerSelection == "rock") {
+        userScore++;
         return "You win! Paper beats rock.";
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        computerScore++;
         return "You lose! Scissors beat paper.";
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        computerScore++;
         return "You lose! Rock beats scissors.";
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        userScore++;
         return "You win! Scissors beats paper.";
     } else return "Something went wrong.";
 }
@@ -67,13 +76,27 @@ userChoice.forEach(choice => {
     })
 });
 
+let myChoice = document.querySelector('.my-choice');
+let computerChoice = document.querySelector('.computer-choice');
+let winner = document.querySelector('.winner');
+let uScore = document.querySelector('.user-score');
+let cScore = document.querySelector('.computer-score');
+
 function buttonClick() {
     playerSelection = playerSelection.toLowerCase();
-    console.log("Me: " + playerSelection);
+    myChoice.textContent = "I choose: " + playerSelection;
     computerSelection = computerPlay();
-    console.log("Computer: " + computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
-}
+    computerChoice.textContent = "Computer chooses: " + computerSelection;
+    winner.textContent = playRound(playerSelection, computerSelection);
+    uScore.textContent = 'User Score: ' + userScore
+    cScore.textContent = 'Computer Score: ' + computerScore;
+
+    if (userScore === 5) {
+        return alert('User wins!');
+    } else if (computerScore === 5) {
+        return alert('Computer wins!');
+    }
+};
 
 /* let playerSelection = prompt(); */
 
